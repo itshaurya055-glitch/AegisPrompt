@@ -15,6 +15,7 @@ dataset_info:
   download_size: 51215
   dataset_size: 87701
   license: cc-by-4.0
+license: apache-2.0
 ---
 # Dataset Card for "deberta-v3-base-injection-dataset"
 
