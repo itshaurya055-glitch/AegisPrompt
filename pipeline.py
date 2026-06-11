@@ -142,13 +142,20 @@ class ModelPredictor:
         self.load_model()
 
     def load_model(self):
-        if not os.path.exists(self.model_dir):
-            print(f"Warning: Model directory {self.model_dir} not found. DistilBERT predictor offline.")
+        # Fallback to root directory if config.json is not found in the designated models path
+        target_dir = self.model_dir
+        if not os.path.exists(os.path.join(target_dir, "config.json")):
+            if os.path.exists(os.path.join(BASE_DIR, "config.json")):
+                target_dir = BASE_DIR
+                print(f"Note: Model files not found at {self.model_dir}, using root directory fallback: {BASE_DIR}")
+        
+        if not os.path.exists(target_dir) or not os.path.exists(os.path.join(target_dir, "config.json")):
+            print(f"Warning: Model directory {self.model_dir} not found (and root fallback empty). DistilBERT predictor offline.")
             return
         
         try:
-            self.tokenizer = DistilBertTokenizerFast.from_pretrained(self.model_dir, local_files_only=True)
-            self.model = DistilBertForSequenceClassification.from_pretrained(self.model_dir, local_files_only=True)
+            self.tokenizer = DistilBertTokenizerFast.from_pretrained(target_dir, local_files_only=True)
+            self.model = DistilBertForSequenceClassification.from_pretrained(target_dir, local_files_only=True)
             self.model = self.model.to(self.device)
             self.model.eval()
             self.is_loaded = True
