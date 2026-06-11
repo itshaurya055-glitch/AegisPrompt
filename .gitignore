@@ -15,3 +15,6 @@ __pycache__/
 models/checkpoints/
 models/best_model/
 models/logs/
+
+# Stitch source files (integrated into dashboard/)
+stitch_aegisprompt_threat_intelligence_dashboard/
