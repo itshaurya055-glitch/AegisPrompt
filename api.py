@@ -212,7 +212,8 @@ def false_positives():
     return jsonify({"items": items})
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     print("\n" + "="*60)
-    print("  AegisPrompt Dashboard running at http://localhost:5000")
+    print(f"  AegisPrompt Dashboard running at http://localhost:{port}")
     print("="*60 + "\n")
-    app.run(debug=False, port=5000, host="0.0.0.0")
+    app.run(debug=False, port=port, host="0.0.0.0")

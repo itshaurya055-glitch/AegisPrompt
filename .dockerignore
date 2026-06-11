@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+models/checkpoints/
+*.log
+.antigravityignore
+.gemini

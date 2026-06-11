@@ -3,6 +3,8 @@
 > **A hybrid AI system that detects prompt injection attacks in real-time.**  
 > Built with DistilBERT + 8 Regex Heuristics + TF-IDF. Interactive web dashboard included.
 
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-blue)](https://huggingface.co/spaces/Xhaurya/AegisPrompt)
+
 ---
 
 ## What is Prompt Injection?
@@ -221,6 +223,40 @@ python train_model.py
 # Step 3: Evaluate
 python evaluate_pipeline.py
 ```
+
+## 🤗 Deploying to Hugging Face Spaces (Docker)
+
+This repository is pre-configured to be deployed directly to Hugging Face Spaces as a Docker container.
+
+### Step 1: Create a Space on Hugging Face
+1. Go to [Hugging Face Spaces](https://huggingface.co/spaces) and click **Create new Space**.
+2. Name it (e.g. `AegisPrompt`) and select **Docker** as the SDK.
+3. Select **Blank** as the template.
+
+### Step 2: Push your code
+You can link your GitHub repository directly to Hugging Face, or push to the Hugging Face Git remote:
+
+```bash
+# Add Hugging Face Space Git remote
+git remote add hf https://huggingface.co/spaces/Xhaurya/AegisPrompt
+
+# Push to Hugging Face Space
+git push hf main --force
+```
+
+### Step 3: Upload Model Weights (Optional)
+Since the fine-tuned model weight files (`models/best_model/model.safetensors`) are large and gitignored on GitHub, you can push them directly to Hugging Face Space via Git LFS:
+
+```bash
+# Install Git LFS if you haven't
+git lfs install
+
+# Commit and push weight file directly to Hugging Face Space Git
+git add models/best_model/model.safetensors
+git commit -m "Upload model weights for deployment"
+git push hf main
+```
+*(If weights are not uploaded, the dashboard will run in a degraded but functional state using the Heuristics and TF-IDF engines!)*
 
 ---
 
