@@ -1,0 +1,12 @@
+{
+  "test_accuracy": 0.7313432835820896,
+  "test_f1": 0.5,
+  "test_precision": 1.0,
+  "test_recall": 0.3333333333333333,
+  "test_auc": 0.9333333333333333,
+  "red_team_total": 50,
+  "red_team_blocked": 37,
+  "red_team_block_rate": 74.0,
+  "tricky_benign_fps": 5,
+  "test_set_fps": 0
+}
