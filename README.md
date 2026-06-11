@@ -2,7 +2,7 @@
 title: AegisPrompt
 emoji: 🛡️
 colorFrom: red
-colorTo: slate
+colorTo: gray
 sdk: docker
 app_port: 7860
 ---
