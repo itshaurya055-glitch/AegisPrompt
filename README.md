@@ -1,3 +1,12 @@
+---
+title: AegisPrompt
+emoji: 🛡️
+colorFrom: red
+colorTo: slate
+sdk: docker
+app_port: 7860
+---
+
 # 🛡️ AegisPrompt — Prompt Injection Detector
 
 > **A hybrid AI system that detects prompt injection attacks in real-time.**  
